@@ -1,110 +1,288 @@
-var div1 = create('div', 'container-fluid mt-5 ml-5 p-5');
+var container = document.createElement('div')
+container.setAttribute('class', 'container p-4');
 
-let bg = document.querySelector('body');
-//bg.style = 'background-image: linear-gradient(to right, #eec5dd, #e5c3e2, #dac1e6, #cdc0ea, #bec0ec, #afc5f3, #9ecbf7, #8cd0f7, #7bdcf5, #76e6ec, #84eedc, #9ff4c8);';
+var heading = document.createElement('div');
+heading.setAttribute('class', 'h2');
+heading.innerHTML = "HTML FORM"
+heading.style.textAlign = "center";
+
+var form = document.createElement('form');
+form.setAttribute('class', 'p-5')
+
+var fname = createFormElements('First Name', 'text', 'fname');
+var lname = createFormElements('Last Name ', 'text', 'lname');
+var address = createFormElements('Address ', 'textarea', 'address');
+var pincode = createFormElements('Pincode ', 'number', 'pin');
+var gender = createRadio();
+var favFood = createMultiSelect();
+var state = createState();
+var country = createCountry();
+var submit = createButton();
+
+var divtable = document.createElement('div')
+divtable.setAttribute('class', 'row');
+
+var table = document.createElement('table');
+table.setAttribute('class', 'table mt-5');
+
+var thead = document.createElement('thead');
+var tbody = document.createElement('tbody');
+
+var tr1 = document.createElement('tr');
+
+var th1 = document.createElement('th');
+th1.innerHTML = 'First Name';
+var th2 = document.createElement('th');
+th2.innerHTML = 'Last Name';
+var th3 = document.createElement('th');
+th3.innerHTML = 'Address';
+var th4 = document.createElement('th');
+th4.innerHTML = 'Pincode';
+var th5 = document.createElement('th');
+th5.innerHTML = 'Gender';
+var th6 = document.createElement('th');
+th6.innerHTML = 'Favourite Food';
+var th7 = document.createElement('th');
+th7.innerHTML = 'State';
+var th8 = document.createElement('th');
+th8.innerHTML = 'Country';
 
 
-var divarr = createElements('div', 'offset-md-2 offset-sm-1 row text-md-center text-sm-left h4 mb-0', 6);
+document.body.append(container);
+container.append(heading, form, divtable);
+divtable.append(table);
+table.append(thead, tbody);
+thead.append(tr1);
+tr1.append(th1, th2, th3, th4, th5, th6, th7, th8);
+form.append(fname, lname, address, pincode, gender, favFood, state, country, submit)
 
-var input = create('input', 'col-8 border-3 border-light text-right mt-5 mb-1');
-input.setAttribute('type', 'text');
-input.disabled = true;
-input.setAttribute('style', `line-height:60px; background-color:#DAE0E2; font-family: 'Comfortaa', cursive;`);
-input.id = "display";
 
-var btnnumbers = createElements('button', 'btn-fluid btn-dark text-md-center text-sm-left text-xs-left p-md-3 p-sm-4 p-xs-4 col-2', 10);
-btnnumbers[0].setAttribute('onclick', "appendNumber(0)");
-btnnumbers[1].setAttribute('onclick', `appendNumber(1)`);
-btnnumbers[2].setAttribute('onclick', `appendNumber(2)`);
-btnnumbers[3].setAttribute('onclick', `appendNumber(3)`);
-btnnumbers[4].setAttribute('onclick', `appendNumber(4)`);
-btnnumbers[5].setAttribute('onclick', `appendNumber(5)`);
-btnnumbers[6].setAttribute('onclick', `appendNumber(6)`);
-btnnumbers[7].setAttribute('onclick', `appendNumber(7)`);
-btnnumbers[8].setAttribute('onclick', `appendNumber(8)`);
-btnnumbers[9].setAttribute('onclick', `appendNumber(9)`);
+function createButton() {
+    var d = document.createElement('div');
+    d.setAttribute('class', 'row offset-6');
 
-var add = createButton('+', '+', `appendNumber('+')`);
-var sub = createButton('-', '-', `appendNumber('-')`);
-var mul = createButton('x', 'X', `appendNumber('*')`);
-var division = createButton('&#247;', '/', `appendNumber('/')`);
-var square = createButton('x<sup>2</sup>', 'square', 'power2()')
-var equals = createButton('=', '=', 'equate()');
-var root = createButton('&radic;', 'root', 'sqrRoot()');
-var dot = createButton('.', '.', `appendNumber('.')`);
-var clear = createButton('c', 'c', 'clearScreen()');
-var cube = createButton('x<sup>3</sup>', 'cube', 'power3()')
+    var btn = document.createElement('button');
+    btn.innerHTML = 'Submit';
+    btn.type = 'button'
+    btn.setAttribute('class', 'btn btn-info text-center mt-5')
+    btn.onclick = action;
 
-document.body.append(div1);
-div1.append(divarr[0], divarr[1], divarr[2], divarr[3], divarr[4], divarr[5]);
-divarr[0].append(input);
-divarr[1].append(square, root, clear, division);
-divarr[2].append(btnnumbers[7], btnnumbers[8], btnnumbers[9], mul);
-divarr[3].append(btnnumbers[4], btnnumbers[5], btnnumbers[6], sub);
-divarr[4].append(btnnumbers[1], btnnumbers[2], btnnumbers[3], add);
-divarr[5].append(cube, btnnumbers[0], dot, equals);
-
-function create(element, classname) {
-    var t = document.createElement(element);
-    t.setAttribute('class', classname);
-    return t;
+    d.append(btn);
+    return d;
 }
 
-function createElements(element, classname, num) {
-    let elem = [];
-    for (let i = 0; i < num; i++) {
-        var b = document.createElement(element);
-        b.setAttribute('class', classname);
-        b.setAttribute('style', `font-family: 'Comfortaa', cursive;`);
-        if (element === 'button') {
-            b.setAttribute('value', i);
-            b.innerHTML = i;
+
+function createFormElements(lbltxt, typ, idname) {
+    var d = document.createElement('div');
+    d.setAttribute('class', 'form-group row');
+    var lbl = document.createElement('label');
+    lbl.classList.add('label', 'col-4', 'col-form-label');
+    lbl.innerHTML = lbltxt;
+    var input = document.createElement('input');
+    input.setAttribute('type', typ);
+    input.id = idname;
+    input.placeholder = lbltxt;
+    input.setAttribute('class', 'form-control col-6')
+    input.required = true;
+    d.append(lbl, input);
+    return d;
+}
+
+function createRadio() {
+    var fieldset = document.createElement('fieldset');
+    fieldset.setAttribute('class', 'form-group');
+
+    var d = document.createElement('div');
+    d.setAttribute('class', 'row');
+
+    var legend = document.createElement('legend');
+    legend.setAttribute('class', 'col-form-label col-4')
+    legend.innerHTML = 'Gender'
+
+    var d1 = document.createElement('div');
+    d1.setAttribute('class', 'col-6 pl-1');
+
+    var d2 = document.createElement('div');
+    d2.setAttribute('class', 'form-check');
+
+    var male = document.createElement('label');
+    male.setAttribute('for', 'Male');
+    male.setAttribute('class', 'form-check-label')
+    male.innerHTML = 'Male';
+    var radio1 = document.createElement('input');
+    radio1.setAttribute('type', 'radio');
+    radio1.setAttribute('class', 'form-check-input');
+    radio1.checked = true;
+    radio1.id = 'Male';
+    radio1.value = 'Male'
+    radio1.name = 'gender';
+
+    var d3 = document.createElement('div');
+    d3.setAttribute('class', 'form-check');
+
+    var female = document.createElement('label');
+    female.setAttribute('for', 'Female');
+    female.innerHTML = 'Female'
+    var radio2 = document.createElement('input');
+    radio2.setAttribute('class', 'form-check-input');
+    radio2.setAttribute('type', 'radio');
+    radio2.id = 'Female';
+    radio2.value = 'Female'
+    radio2.name = 'gender';
+
+    fieldset.append(d)
+    d.append(legend, d1);
+    d1.append(d2, d3);
+    d2.append(radio1, male);
+    d3.append(radio2, female);
+
+
+
+    return fieldset;
+}
+
+
+function createMultiSelect() {
+    var d = document.createElement('div');
+    d.setAttribute('class', 'form-group row');
+
+    var label = document.createElement('label');
+    label.setAttribute('class', 'col-form-label col-4');
+    label.innerHTML = "Favourite Food"
+
+    var select = document.createElement('select');
+    select.multiple = true;
+    select.id = 'food'
+    select.setAttribute('class', 'form-control col-6')
+    var opt1 = new Option('Pizza', 'Pizza');
+
+    var opt2 = new Option('Burger', 'Burger');
+    var opt3 = new Option('Pasta', 'Pasta');
+    var opt4 = new Option('Noodles', 'Noodles');
+    var opt5 = new Option('Biryani', 'Biryani');
+    opt2.selected = true;
+
+    select.add(opt1);
+    select.add(opt2);
+    select.add(opt3);
+    select.add(opt4);
+    select.add(opt5);
+
+    d.append(label, select);
+    return d;
+}
+
+function createState() {
+    var d = document.createElement('div');
+    d.setAttribute('class', 'form-group row');
+
+    var label = document.createElement('label');
+    label.setAttribute('class', 'col-form-label col-4');
+    label.innerHTML = "State";
+
+    var select = document.createElement('select');
+    select.id = 'state'
+    select.setAttribute('class', 'form-control col-6')
+    var opt1 = new Option('Andhra Pradesh', 'Andhra Pradesh');
+    opt1.selected = true;
+    var opt2 = new Option('Karnataka', 'Karnataka');
+    var opt3 = new Option('Tamilnadu', 'Tamilnadu');
+    var opt4 = new Option('Kerala', 'Kerala');
+    var opt5 = new Option('Madhya Pradesh', 'Madhya Pradesh');
+    var opt6 = new Option('Haryana', 'Haryana');
+    var opt7 = new Option('Gujarat', 'Gujarath');
+
+    select.add(opt1);
+    select.add(opt2);
+    select.add(opt3);
+    select.add(opt4);
+    select.add(opt5);
+    select.add(opt6);
+    select.add(opt7);
+
+    d.append(label, select);
+    return d;
+}
+
+function createCountry() {
+    var d = document.createElement('div');
+    d.setAttribute('class', 'form-group row');
+
+    var label = document.createElement('label');
+    label.setAttribute('class', 'col-form-label col-4');
+    label.innerHTML = "Country";
+
+    var select = document.createElement('select');
+    select.setAttribute('class', 'form-control col-6')
+    select.id = 'country'
+    var opt1 = new Option('India', 'India');
+    opt1.selected = true;
+    var opt2 = new Option('USA', 'USA');
+    var opt3 = new Option('Australia', 'Australia');
+    var opt4 = new Option('South Africa', 'South Africa');
+    var opt5 = new Option('New Zealand', 'New Zealand');
+    var opt6 = new Option('England', 'England');
+    var opt7 = new Option('West Indies', 'West Indies');
+
+    select.add(opt1);
+    select.add(opt2);
+    select.add(opt3);
+    select.add(opt4);
+    select.add(opt5);
+    select.add(opt6);
+    select.add(opt7);
+
+    d.append(label, select);
+    return d;
+}
+
+
+
+function action() {
+    var fn = document.getElementById('fname').value;
+    var ln = document.getElementById('lname').value;
+    var addr = document.getElementById('address').value;
+    var pcode = document.getElementById('pin').value;
+
+    if (!fn) {
+        alert('Please Enter First Name');
+    } else if (!ln) {
+        alert('Please Enter Last Name');
+    } else if (!addr) {
+        alert('Please Enter Address');
+    } else if (!pcode) {
+        alert('Please Enter pin code');
+    } else {
+
+        let tablebody = document.querySelector('tbody');
+        var trow2 = tablebody.insertRow(0);
+        var cell1 = trow2.insertCell(0);
+        var cell2 = trow2.insertCell(1);
+        var cell3 = trow2.insertCell(2);
+        var cell4 = trow2.insertCell(3);
+        var cell5 = trow2.insertCell(4);
+        var cell6 = trow2.insertCell(5);
+        var cell7 = trow2.insertCell(6);
+        var cell8 = trow2.insertCell(7);
+        cell1.innerHTML = fn;
+        cell2.innerHTML = ln;
+        cell3.innerHTML = addr;
+        cell4.innerHTML = pcode;
+
+        var data = document.getElementsByName('gender');
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].checked === true)
+                cell5.innerHTML = data[i].value;
         }
-        elem.push(b);
+
+        var foodvalues = document.getElementById('food');
+        cell6.innerHTML = [...foodvalues.options].filter((val) => val.selected).map((opt) => opt.value);
+
+        cell7.innerHTML = document.getElementById('state').value;
+        cell8.innerHTML = document.getElementById('country').value;
+
+        alert('Thanks for submitting the form!!')
     }
-    return elem;
-}
-
-function createButton(txt, val, fn) {
-    let a = document.createElement('button');
-    a.setAttribute('class', 'btn-fluid btn-dark text-md-center text-sm-left text-xs-left p-md-3 p-sm-4 p-xs-4 col-2');
-    a.setAttribute('value', val);
-    a.innerHTML = txt;
-    a.setAttribute('onclick', fn);
-    return a;
-}
 
 
-function appendNumber(val) {
-    input.value += val;
-}
-
-
-function equate() {
-    input.value = Number.isInteger(eval(input.value)) ? eval(input.value) : eval(input.value).toFixed(2);
-}
-
-function sqrRoot() {
-    if (input.value) {
-        let val = parseFloat(eval(input.value))
-        input.value = Math.sqrt(val).toFixed(2);
-    }
-}
-
-function power3() {
-    if (input.value) {
-        let val = parseFloat(eval(input.value))
-        input.value = Math.pow(val, 3).toFixed(2);
-    }
-}
-
-function power2() {
-    if (input.value) {
-        let val = parseFloat(eval(input.value))
-        input.value = Math.pow(val, 2).toFixed(2);
-    }
-}
-
-function clearScreen() {
-    input.value = "";
 }
