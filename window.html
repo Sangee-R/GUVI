@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        Magesh
+    </div>
+
+    <h3>window</h3>
+    <ul>
+        <li>browser object</li>
+        <li>all js object , functions</li>
+        <li>window is a global object</li>
+        <li>window.document.getElementById('firstHeading')</li>
+    </ul>
+    <br>
+    <hr>
+    <ul>
+        <li>by default JS single- therad</li>
+        <li>multi thread  callback</li>
+    </ul>
+    <hr>
+    <br>
+    <h3>Asynchronous</h3>
+    <ul>
+        <li>wont wait for the code to get execute</li>
+        <li>To achive Asynchronous
+            <ul>
+                <li>callback</li>
+                <li>Promise</li>
+                <li>Async/awit</li>
+            </ul>
+        </li>
+    </ul>
+    <br>
+    <hr>
+    <br>
+    <p id="stopwatch"><label for="" id="hr">14</label> :<label for="" id="mm">30</label> :<label for="" id="ss">00</label></p>
+    <br>
+    <button id="Start" onclick="superfunction1(this)">Start</button>
+
+    <button id="stop" onclick="superfunction(this)">Stop</button>
+
+    <button id="rest" onclick="reset(this)">Reset</button>
+
+    <input type="text" id="gettinginput" onkeydown="userpressing(this)">
+
+    <input id="gettinginput" onkeypress="userpressing(this)">
+
+    <p><label for="">1</label><label for="">2</label><label for="">3</label></p>
+    <p><label for="">4</label><label for="">5</label><label for="">6</label></p>
+
+    <p id="calc">Calculator</p>
+    <p id="calc2">Calculator</p>
+
+    <button onclick="one(this)" id="1">1</button>
+    <button onclick="two(this)" id="2">2</button>
+    <button onclick="three(this)" id="3">3</button>
+    <br>
+    <button id="4">4</button>
+    <button id="5">5</button>
+    <button id="6">6</button>
+    <br>
+    <button  onclick="adding(this)" id="+">+</button>
+    <button id="5">-</button>
+    <button id="6">*</button>
+    <script  src="window.js"></script>
+</body>
+</html>

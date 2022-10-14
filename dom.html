@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Document Object Model</h3>
+    <ul>
+        <li>Intro to DOM</li>
+        <li>getElementById</li>
+        <li>getElementByClassName</li>
+        <li>getElementByTagName</li>
+        <li>querySelector</li>
+        <li>querySelectorAll</li>
+    </ul>
+    <br>
+    <hr>
+    <h3>Intro to DOM</h3>
+    <ul>
+        <li>Document Object Model</li>
+        <li>Representation of Website</li>
+        <li>it contains object to interact with JS</li>
+        <li>object => has mehtods & properties to interact</li>
+    </ul>
+    <br>
+    <hr>
+    <h3>getElementById</h3>
+    <ul>
+        <li>whenever we use the getElementById we directly get the element</li>
+        <li>document.getElementById('idname')</li>
+    </ul>
+    <br>
+    <hr>
+    <h3>getElementByClassName</h3>
+    <ul>
+        <li>output will be in HTML Collections -> array</li>
+        <li>document.getElementByClassName('className')</li>
+    </ul>
+    <br>
+    <hr>
+    <h3>getElementByTagName</h3>
+    <ul>
+        <li>output will be in HTML Collections -> array</li>
+        <li>document.getElementByClassName('tagName')</li>
+    </ul>
+    <br>
+    <hr>
+    <h3>querySelector</h3>
+    <ul>
+        <li>output will be first occured element</li>
+        <li>we can use parent child method</li>
+        <li>document.querySelector('p a')</li>
+    </ul>
+    <br>
+    <hr>
+    <h3>querySelectorAll</h3>
+    <ul>
+        <li>output will be array</li>
+        <li>we can use parent child method</li>
+    </ul>
+    <br>
+    <hr>
+    <h3>innerText & textContent & innerHTML</h3>
+    <p> Text output in that particular tag</p>
+    <ul>
+        <li>innerText -> if visibility is hidden it wont show the output</li>
+        <li>textContent -> if visibility is hidden it will show the output</li>
+    </ul>
+    <br>
+    <hr>
+    <h3>Attributes</h3>
+    <ul>
+        <li>getAttribute
+            <ul>
+                <li>first to get the element we want to search for attribute</li>
+                <li>document.querySelector('#firstHeading').getAttribute('class')</li>
+            </ul>
+        </li>
+        <li>setAttribute
+            <ul>
+                <li>let set_attri = document.querySelector('#super p:nth-child(4)')</li>
+                <li>set_attri.setAttribute('id','whatever')</li>
+                <li>completely modifys the previous data</li>
+                <li>should not use for adding a class</li>
+            </ul>
+        </li>
+    </ul>
+    <br>
+    <hr>
+    <h3>classList</h3>
+    <ul>
+        <li>add -> push the new class <br>document.querySelector('#firstHeading').classList.add('magesh')</li>
+        <li>remove -> remove the particular class</li>
+        <li>contains -> to check class is there or not </li>
+        <li>toogle -> it will add if calss is not there or it will remove</li>
+    </ul>
+    <br>
+    <hr>
+    <h3>To create a Element</h3>
+    <ul>
+        <li>to tell what tag we are createing <br> document.createElement('tagname')</li>
+        <li>adding source to that tag</li>
+        <li>to show our created element <br>
+            <ul>
+                <li>appendChild
+                    <ul>
+                        <li>to take the parent</li>
+                        <li>use appendChild method</li>
+                        <li>always takes the data as node</li>
+                    </ul>
+                </li>
+                <li>append
+                    <ul>
+                        <li>we can use it directly</li>
+                    </ul>
+                </li>
+            </ul>
+
+        </li>
+    </ul>
+    <br>
+    <hr>
+    <h3>remove a Element</h3>
+    <ul>
+        <li>removeChild
+            <ul>
+                <li>to take child -> exact element needs to be removed</li>
+                <li>to take the parent</li>
+                <li>parent.removeChild(child)</li>
+            </ul>
+        </li>
+        <li>remove</li>
+        <ul>
+            <li>to take child -> exact element needs to be removed</li>
+            <li>child.remove()</li>
+        </ul>
+    </ul>
+    <br>
+    <hr>
+    <h3>Insert a Element</h3>
+    <ul>
+        <li>insertAdjacentElement
+            <ul>
+                <li>beforebegin</li>
+                <li>afterbegin</li>
+                <li>beforend</li>
+                <li>afterend</li>
+            </ul>
+        </li>
+
+    </ul>
+    <ul>
+        <li></li>
+    </ul>
+
+<!-- 
+    let child = document.createElement('img')
+    child.src = 'https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/188px-Flag_of_India.svg.png'
+    'https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/188px-Flag_of_India.svg.png'
+    document.getElementById('firstHeading').appendChild(child) -->
+
+</body>
+<script>
+    console.log('super')
+    let vari = prompt('hi hello') // it is for window 
+    console.log(vari)
+    let a = [1,2,3,4,5]
+    
+</script>
+</html>

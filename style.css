@@ -1,0 +1,77 @@
+@media screen and (max-width = 400px ){
+    *{
+        color: blue;
+    }
+}
+
+@media screen and (min-width = 600px ){
+    *{
+        color: rgb(102, 255, 0);
+    }
+}
+
+#firstHeading{
+    color: blue;
+}
+
+/* #super p[title="box"]{
+    color: red;
+} */
+
+/* p[title="box"]{
+    color: blue;
+} */
+
+/* #super p[title="box"]{
+    color: rgb(0, 255, 8);
+} */
+
+a[href="https://www.guvi.in"]{
+    color: rgb(165, 226, 43);
+}
+
+/* * -> contains */
+a[href*="google"]{
+    color: rgb(226, 43, 101);
+}
+
+/* * -> end */
+a[href$="com"]{
+    color: rgb(43, 141, 226);
+}
+
+a[href$="in"]{
+    color: rgb(226, 186, 43);
+}
+
+a[href^="https"]{
+    color: rgb(43, 226, 220);
+}
+
+#super a:nth-child(1){
+    color: rgb(226, 165, 43);
+}
+
+/* #super p:nth-child(1){
+    color: rgb(226, 165, 43);
+} */
+
+#super p:nth-child(2n){
+    color: rgb(43, 92, 226);
+}
+
+#super p:nth-child(1n){
+    color: rgb(43, 226, 104);
+}
+
+#super p:nth-child(2n-1){
+    color: rgb(226, 43, 144);
+}
+
+p{
+    color: rgb(255, 98, 0);
+}
+
+a:nth-of-type(2){
+    color: rgb(255, 0, 0);
+}

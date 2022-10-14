@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <h3>EVENTS</h3>
+    <ul>
+        <li>click</li>
+        <li>submit</li>
+        <li>scroll</li>
+        <li>preventDefault()</li>
+    </ul>
+    <br>
+    <hr>
+    <h3>Keyboard Events</h3>
+    <ul>
+        <li>keydown</li>
+        <li>keypress</li>
+        <li>keyup</li>
+    </ul>
+    <br>
+    <hr>
+    <form>
+        <input type="text" placeholder="Enter Your Name" minlength="3" maxlength="20"><br>
+        <input type="password" placeholder="Enter Your Password" required><br>
+        <input type="email" placeholder="Enter Your Email" required><br>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <hr>
+    <h3>async</h3>
+    <ul>
+        <li>wont wait for other code. wont occur at same time</li>
+    </ul>
+    <h3>to create async</h3>
+    <ul>
+        <li>callback</li>
+        <li>promise</li>
+        <li>async/await</li>
+    </ul>
+    <ul>
+        <li></li>
+    </ul>
+    <br>
+    <hr>
+    <h3>CallBacks</h3>
+    <ul>
+        <li>
+            click,keypress,keydown, keyup, submit
+        </li>
+        <ol>
+            <li>statck</li>
+            <li>callback queue</li>
+        </ol>
+    </ul>
+    <br>
+    <hr>
+    <h3>promise</h3>
+    <p>better way than callback to handle async</p>
+    <p>promise is synchronous</p>
+    <p>promise always gives us output as state</p>
+    <p>three states in promise</p>
+    <ul>
+        <li>promise Pending</li>
+        <li>promise resolved/fullfilled values</li>
+        <li>promise reject -> reject with a reason</li>
+    </ul>
+    <ul>
+        <li>to create a promise
+            <ul>
+                <li> Using Constructor</li>
+                <li>new keyword which will represent the instance of a class</li>
+                <li>let promise_vari = new promise(resolved,reject)</li>
+            </ul>
+           
+        </li>
+        <li>to consume a promise</li>
+        <ul>
+            <li>.then => resolved</li>
+            <li>.catch => reject</li>
+            <li>.finally => always executed</li>
+        </ul>
+    </ul>
+
+
+
+    <script src="async.js"></script>
+</body>
+</html>
