@@ -1,77 +1,64 @@
-@media screen and (max-width = 400px ){
-    *{
-        color: blue;
-    }
+body{
+    margin: 0;
+    padding: 0;
+    background:url(./image/wallpaperflare.com_wallpaper\ \(1\).jpg);
+    background-repeat: no-repeat;
+    background-position: fixed;
+    background-size: cover;
+}
+.content{
+    position:relative;
+    margin-left: 0.6rem;
+    height: 13rem;
+    width: 21rem;
+    background-color:transparent;
+    color:white;
+    padding: 20px;
+}
+.shadow{
+    position: relative;
+    margin: 100px;
+    width: 350px;
+    height: 400px;
+    background: linear-gradient(0deg,#000,#262626);
+}
+.shadow:before,
+.shadow:after{
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background: linear-gradient(45deg,#00d1fb,#000000,#00d1fb,#000000,#00d1fb,#000000,#00d1fb,#000000,#00d1fb,#000000);
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index:-1 ;
+    animation: animate 20s linear infinite;
+}
+.shadow:after{
+    filter: blur(100px);
+}
+@keyframes animate {
+   0%{
+    background-position:  0 0;
+   }
+   50%{
+    background-position:  400% 0;
+   }
+   100%{
+    background-position:  1000% 0;
+   }     
 }
 
-@media screen and (min-width = 600px ){
-    *{
-        color: rgb(102, 255, 0);
-    }
+h4{
+    color: #00d1fb;
+}
+h5{
+    color: rgb(255, 255, 255);
 }
 
-#firstHeading{
-    color: blue;
-}
-
-/* #super p[title="box"]{
-    color: red;
-} */
-
-/* p[title="box"]{
-    color: blue;
-} */
-
-/* #super p[title="box"]{
-    color: rgb(0, 255, 8);
-} */
-
-a[href="https://www.guvi.in"]{
-    color: rgb(165, 226, 43);
-}
-
-/* * -> contains */
-a[href*="google"]{
-    color: rgb(226, 43, 101);
-}
-
-/* * -> end */
-a[href$="com"]{
-    color: rgb(43, 141, 226);
-}
-
-a[href$="in"]{
-    color: rgb(226, 186, 43);
-}
-
-a[href^="https"]{
-    color: rgb(43, 226, 220);
-}
-
-#super a:nth-child(1){
-    color: rgb(226, 165, 43);
-}
-
-/* #super p:nth-child(1){
-    color: rgb(226, 165, 43);
-} */
-
-#super p:nth-child(2n){
-    color: rgb(43, 92, 226);
-}
-
-#super p:nth-child(1n){
-    color: rgb(43, 226, 104);
-}
-
-#super p:nth-child(2n-1){
-    color: rgb(226, 43, 144);
-}
-
-p{
-    color: rgb(255, 98, 0);
-}
-
-a:nth-of-type(2){
-    color: rgb(255, 0, 0);
+#button{
+    margin-left:7rem;
+    margin-top: 8rem;
+    position:relative;
 }
